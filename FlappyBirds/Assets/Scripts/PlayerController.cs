@@ -9,9 +9,11 @@ public class PlayerController : MonoBehaviour
     private float bounceForce;
 
     private Rigidbody2D rb;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         rb = GetComponent<Rigidbody2D>();
         impulseForce = 10f;
         roofValue = 4.5f;
@@ -44,9 +46,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Tube"))
+        if(collision.gameObject.CompareTag("Tube") ||
+            collision.gameObject.name == "Floor")
         {
-            Debug.Log("Player hit the tube. Game Over!");
+            Debug.Log("Game over!");
+            gameManager.isGameOver = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name == "Point Trigger")
+        {
+            gameManager.points++;
         }
     }
 }

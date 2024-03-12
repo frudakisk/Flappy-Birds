@@ -17,6 +17,7 @@ public class TubeScaling : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
+        OffScreenDestroy();
     }
 
     private void TubePosition()
@@ -26,6 +27,14 @@ public class TubeScaling : MonoBehaviour
         Vector3 pos = transform.position;
         pos.y = randomMiddle;
         transform.position = pos;
+    }
+
+    private void OffScreenDestroy()
+    {
+        if(transform.position.x <= -20f)
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
