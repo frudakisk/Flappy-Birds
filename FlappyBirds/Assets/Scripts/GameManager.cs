@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class GameManager : MonoBehaviour
     private float spawnRate;
 
     public int points;
+
+    //Text
+    public TextMeshProUGUI startText;
+    public TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +35,14 @@ public class GameManager : MonoBehaviour
         {
             StartGame();
         }
-        
+
+        scoreText.text = $"Score: {points}";
+
+        if(isGameOver)
+        {
+            //little particle effect here
+            Destroy(player.gameObject);
+        }
     }
 
     private IEnumerator spawnPipes()
@@ -46,7 +58,7 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Starting Game!");
+            startText.gameObject.SetActive(false);
             isGameOn = true;
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             StartCoroutine(spawnPipes());
