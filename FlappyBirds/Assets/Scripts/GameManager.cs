@@ -5,8 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool isGameOver;
+    public bool isGameOn;
 
     public GameObject pipesObject;
+    public GameObject player;
 
     private Vector3 pipesPosition = new Vector3(15f, 0f, 1f);
     private float spawnRate;
@@ -18,12 +20,16 @@ public class GameManager : MonoBehaviour
     {
         spawnRate = 3.0f;
         points = 0;
-        StartCoroutine(spawnPipes());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!isGameOn)
+        {
+            StartGame();
+        }
         
     }
 
@@ -34,5 +40,18 @@ public class GameManager : MonoBehaviour
             Instantiate(pipesObject, pipesPosition, Quaternion.identity);
             yield return new WaitForSeconds(spawnRate);
         }
+    }
+
+    private void StartGame()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Starting Game!");
+            isGameOn = true;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            StartCoroutine(spawnPipes());
+        }
+        //dont spawn until we start game
+        //dont allow physics to manipulate the player until we start game
     }
 }
