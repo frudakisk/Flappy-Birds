@@ -5,9 +5,11 @@ using UnityEngine;
 public class TubeScaling : MonoBehaviour
 {
     private float speed;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         speed = 5f;
         TubePosition();
 
@@ -16,7 +18,11 @@ public class TubeScaling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        if(!gameManager.isGameOver)
+        {
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
+        }
+        OffScreenDestroy();
     }
 
     private void TubePosition()
@@ -26,6 +32,14 @@ public class TubeScaling : MonoBehaviour
         Vector3 pos = transform.position;
         pos.y = randomMiddle;
         transform.position = pos;
+    }
+
+    private void OffScreenDestroy()
+    {
+        if(transform.position.x <= -20f)
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
