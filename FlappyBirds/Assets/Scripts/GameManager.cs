@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI startText;
     public TextMeshProUGUI scoreText;
 
+    //panels
+    public GameObject gameOverPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,7 @@ public class GameManager : MonoBehaviour
             isGameOn = false;
             //little particle effect here
             Destroy(player.gameObject);
+            gameOverPanel.SetActive(true);
         }
     }
 
