@@ -10,11 +10,13 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private GameManager gameManager;
+    private AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         rb = GetComponent<Rigidbody2D>();
+        audioManager = GameObject.Find("Audio Manager").GetComponent<AudioManager>();
         impulseForce = 10f;
         roofValue = 4.5f;
         bounceForce = 2f;
@@ -58,6 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.name == "Point Trigger")
         {
+            audioManager.PlayClip(0);
             gameManager.points++;
         }
     }
