@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject pipesObject;
     public GameObject player;
 
-    private Vector3 pipesPosition = new Vector3(15f, 0f, 1f);
+    private Vector3 pipesPosition = new Vector3(15f, 0f, 0.5f);
     private float spawnRate;
 
     public int points;
@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
 
         if(isGameOver)
         {
+            isGameOn = false;
             //little particle effect here
             Destroy(player.gameObject);
         }
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) && player != null)
         {
             startText.gameObject.SetActive(false);
             isGameOn = true;
