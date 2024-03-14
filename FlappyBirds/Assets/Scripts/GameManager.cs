@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         audioManager = GameObject.Find("Audio Manager").GetComponent<AudioManager>();
-        //spawnRate = 3.0f;
         points = 0;
         
     }
@@ -78,11 +77,20 @@ public class GameManager : MonoBehaviour
     {
         isGameOn = false;
         playedGameOverRoutine = true;
+        CheckHighscore();
         Vector3 pos = player.transform.position;
         Instantiate(birdExplosion, pos, Quaternion.identity);
         audioManager.PlayClip(1);
         Destroy(player.gameObject);
         yield return new WaitForSeconds(3f);
         gameOverPanel.SetActive(true);
+    }
+
+    private void CheckHighscore()
+    {
+        if(points > DataController.Instance.highscore)
+        {
+            DataController.Instance.highscore = points;
+        }
     }
 }

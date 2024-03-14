@@ -383,6 +383,7 @@
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/LeftAnchor.cs"
 "Assets/Scripts/Main Menu Scripts/BirdSpawner.cs"
+"Assets/Scripts/Main Menu Scripts/DataController.cs"
 "Assets/Scripts/Main Menu Scripts/DifficultyButton.cs"
 "Assets/Scripts/Main Menu Scripts/MainMenuCanvas.cs"
 "Assets/Scripts/Main Menu Scripts/PlayerDemo.cs"
