@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     public GameObject pipesObject;
     public GameObject player;
 
-    private Vector3 pipesPosition = new Vector3(15f, 0f, 0.5f);
-    private float spawnRate;
+    private Vector3 pipesPosition = new Vector3(15f, 0f, -1f);
+    public static float spawnRate;
 
     public int points;
 
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         audioManager = GameObject.Find("Audio Manager").GetComponent<AudioManager>();
-        spawnRate = 3.0f;
+        //spawnRate = 3.0f;
         points = 0;
         
     }

@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         if(transform.position.y >= roofValue)
         {
-            transform.position = new Vector2(transform.position.x, roofValue);
+            transform.position = new Vector3(transform.position.x, roofValue, transform.position.z);
             rb.AddForce(Vector2.down * bounceForce, ForceMode2D.Impulse);
         }
     }

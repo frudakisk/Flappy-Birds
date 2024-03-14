@@ -5,12 +5,7 @@ using UnityEngine;
 public class LeftAnchor : MonoBehaviour
 {
     public float leftOffset;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
+    
     private void Update()
     {
         //Get the main camera's viewport width
@@ -25,6 +20,8 @@ public class LeftAnchor : MonoBehaviour
 
         //set new position
         transform.position = newPosition;
+        //and set the start position here as well for each MoveBackground script
+        MoveBackground.startPos = newPosition;
     }
 
 }
