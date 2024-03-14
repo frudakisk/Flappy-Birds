@@ -34,12 +34,18 @@ public class PlayerController : MonoBehaviour
         CheckRoof();
     }
 
+    /// <summary>
+    /// Applies an upward force to the player to simulate flying
+    /// </summary>
     private void Jump()
     {
         rb.AddForce(Vector2.up * impulseForce, ForceMode2D.Impulse);
         jumpParticles.Play();
     }
 
+    /// <summary>
+    /// Checks to see if the player hit the top of the screen
+    /// </summary>
     private void CheckRoof()
     {
         if(transform.position.y >= roofValue)

@@ -22,6 +22,9 @@ public class DataController : MonoBehaviour
         Load();
     }
 
+    /// <summary>
+    /// Save persistant data
+    /// </summary>
     public void Save()
     {
         SaveData data = new SaveData();
@@ -30,6 +33,9 @@ public class DataController : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
+    /// <summary>
+    /// Load in persistant data
+    /// </summary>
     public void Load()
     {
         string path = Application.persistentDataPath + "/savefile.json";
@@ -41,6 +47,9 @@ public class DataController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fore testing purposes. Removes any saved data
+    /// </summary>
     public void ResetData()
     {
         string path = Application.persistentDataPath + "/savefile.json";

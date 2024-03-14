@@ -33,8 +33,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         audioManager = GameObject.Find("Audio Manager").GetComponent<AudioManager>();
-        points = 0;
-        
+        points = 0;       
     }
 
     // Update is called once per frame
@@ -53,6 +52,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// While the game isnt over, Spawns the pipe obstacle at timed intervals
+    /// </summary>
+    /// <returns>a routine</returns>
     private IEnumerator spawnPipes()
     {
         while(!isGameOver)
@@ -62,6 +65,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Starts the game when the player hits required button or key
+    /// and allows physics to take place and starts spawning pipe obstacles
+    /// </summary>
     private void StartGame()
     {
         if((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && player != null)
@@ -73,6 +80,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This is what happens when the game is over.
+    /// We check the highscore, do an explosion on player position,
+    /// make a noise when the player dies and shows the game over panel
+    /// </summary>
+    /// <returns>a routine</returns>
     private IEnumerator GameOverRoutine()
     {
         isGameOn = false;
@@ -86,6 +99,9 @@ public class GameManager : MonoBehaviour
         gameOverPanel.SetActive(true);
     }
 
+    /// <summary>
+    /// Compares the players current score with the highscore
+    /// </summary>
     private void CheckHighscore()
     {
         if(points > DataController.Instance.highscore)

@@ -12,12 +12,10 @@ public class BirdSpawner : MonoBehaviour
         StartCoroutine(InfiniteBirdSpawn());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// Spawn birds at a random y positions at random intervals
+    /// </summary>
+    /// <returns>a routine</returns>
     private IEnumerator InfiniteBirdSpawn()
     {
         while(true)

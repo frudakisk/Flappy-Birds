@@ -26,6 +26,7 @@ public class MoveBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //this scripts needs to behave differently in the two different scenes
         if(gameManager == null)
         {
             if(SceneManager.GetActiveScene().name == "Main Menu")
@@ -35,6 +36,7 @@ public class MoveBackground : MonoBehaviour
         }
         else
         {
+            //only start moving if the game is active
             if (gm.isGameOn)
             {
                 transform.Translate(Vector3.left * speed * Time.deltaTime);

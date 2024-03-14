@@ -25,6 +25,9 @@ public class TubeScaling : MonoBehaviour
         OffScreenDestroy();
     }
 
+    /// <summary>
+    /// Here we set the y position of each created tube
+    /// </summary>
     private void TubePosition()
     {
         //determine position when creating tubes
@@ -34,6 +37,9 @@ public class TubeScaling : MonoBehaviour
         transform.position = pos;
     }
 
+    /// <summary>
+    /// destroys the tube when they are far away from the screen view
+    /// </summary>
     private void OffScreenDestroy()
     {
         if(transform.position.x <= -20f)

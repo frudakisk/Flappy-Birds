@@ -18,7 +18,10 @@ public class AudioManager : MonoBehaviour
         backgroundSource.Play();
     }
 
-
+    /// <summary>
+    /// Plays a clip from our sxfClips list by givine an index value
+    /// </summary>
+    /// <param name="clipNumber">index of clip we want to play</param>
     public void PlayClip(int clipNumber)
     {
         if(clipNumber >= sfxClips.Length || clipNumber < 0)
