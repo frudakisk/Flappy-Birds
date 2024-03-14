@@ -382,6 +382,8 @@
 "Assets/Scripts/CanvasController.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/LeftAnchor.cs"
+"Assets/Scripts/Main Menu Scripts/BirdSpawner.cs"
+"Assets/Scripts/Main Menu Scripts/PlayerDemo.cs"
 "Assets/Scripts/MoveBackground.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/TubeScaling.cs"

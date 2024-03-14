@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject pipesObject;
     public GameObject player;
 
-    private Vector3 pipesPosition = new Vector3(15f, 0f, 0.5f);
+    private Vector3 pipesPosition = new Vector3(15f, 0f, -1f);
     private float spawnRate;
 
     public int points;
