@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) && player != null)
+        if((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && player != null)
         {
             startText.gameObject.SetActive(false);
             isGameOn = true;
