@@ -384,6 +384,7 @@
 "Assets/Scripts/LeftAnchor.cs"
 "Assets/Scripts/Main Menu Scripts/BirdSpawner.cs"
 "Assets/Scripts/Main Menu Scripts/DifficultyButton.cs"
+"Assets/Scripts/Main Menu Scripts/MainMenuCanvas.cs"
 "Assets/Scripts/Main Menu Scripts/PlayerDemo.cs"
 "Assets/Scripts/MoveBackground.cs"
 "Assets/Scripts/PlayerController.cs"
